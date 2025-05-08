@@ -1,0 +1,3 @@
+//used to prevent commiting node_module
+
+node_modules/
