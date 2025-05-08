@@ -1,5 +1,10 @@
-import express from 'express'
+import express from 'express';
+const bodyParser = required ('body-parser');
+
 const app = express();
+
+// body-parser middleware setup
+
 
 // main route 
 app.get("/", function(req, res) {
