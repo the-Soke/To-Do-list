@@ -3,17 +3,25 @@
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
-
   "scripts": {
+    "start": "node toDo.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "const express = require('express'); const bodyParser = require('body-parser'); const db = require('./db');\r const router = express.Router(); router.use(bodyParser.json()); router.post('/tasks', async (req, res) => { const { title, description, due_date } = req.body; const newTask = await db.createTask({ title, description, due_date }); res.json(newTask); });",
   "dependencies": {
     "body-parser": "^2.2.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-Soke/To-Do-list.git"
+  },
+  "bugs": {
+    "url": "https://github.com/the-Soke/To-Do-list/issues"
+  },
+  "homepage": "https://github.com/the-Soke/To-Do-list#readme"
 }
