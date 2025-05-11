@@ -6,4 +6,9 @@ router.get('/', (reg,res) => {
     res.render('index', {title: 'To-Do App'});
 })
 
+router.post('/task', (req, res) => {
+    const items = req.body.items;
+
+})
+
 export default router;
