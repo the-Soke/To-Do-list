@@ -46,12 +46,35 @@ app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
 });
 
-<<<<<<< HEAD
+
   
-=======
+
 app.listen(3000, () => console.log('Server Is Running Succesfully '))
 
+//using toDo routes
+app.use('/task', taskrouter);
 
 
+//Public static files middleware
+app.use(express.static('public'));
 
->>>>>>> a2cf6b1c1b9647bc11edd1cbecd4a6e48ff51927
+//Logging middleware using morgan for custom token cre
+
+//views
+app.set('view engine', 'ejs');
+
+//keeping user cookies session setup
+app.use(session({
+    secret: 'Secrete key for individual user',
+    resave: false,
+    saveUninitialized: false
+}));
+
+// main route 
+app.use("/", router);
+
+//starting the server on port 3000 
+app.listen(3000, () => {
+    console.log('Server is running on http://localhost:3000');
+});
+

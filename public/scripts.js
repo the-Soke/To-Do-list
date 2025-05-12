@@ -1,3 +1,4 @@
+
 // Responsible for improving the clent side interactions
 const taskForm = document.getElementById('taskForm');
 const taskInput = document.getElementById('taskInput');
