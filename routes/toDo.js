@@ -68,7 +68,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 
-mongoose.connect('mongodb+srv://<username>:<password>@cluster0.mongodb.net/todoDB?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://Omotolani-A:todopassword@cluster0.7oujqkd.mongodb.net/todoDB?retryWrites=true&w=majority&appName=Cluster0')
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error(err));
 
