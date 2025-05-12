@@ -46,4 +46,12 @@ app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
 });
 
+<<<<<<< HEAD
   
+=======
+app.listen(3000, () => console.log('Server Is Running Succesfully '))
+
+
+
+
+>>>>>>> a2cf6b1c1b9647bc11edd1cbecd4a6e48ff51927
