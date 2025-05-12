@@ -9,7 +9,7 @@ loginForm.addEventListener('submit', function(e) {
   // Auto-login without checking database
   if (username && password) {
     localStorage.setItem('todoUser', username);
-    window.location.href = 'index.html';
+    window.location.href = 'home.html';
   } else {
     alert('Please fill all fields!');
   }

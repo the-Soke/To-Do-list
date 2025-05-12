@@ -1,24 +1,25 @@
 // used to handle update, delete, add
 // used to keep app.js clean and help in management as app.js becomes more complex
 import express from 'express';
+const router = express.Router();
 
-const app = express();
+// const app = express();
 let tasks = [];
 let count = 1;
 
-app.use(express.json());
+router.use(express.json());
 //The first page users will see.
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.send("Hey there!! Ready to organize your tasks?");
 });
 
 // To get all the tasks
-app.get('/task', (req, res) => {
+router.get('/list', (req, res) => {
     res.json(tasks);
 });
 
 // To add new tasks
-app.post('/task', (req, res) => {
+router.post('/post', (req, res) => {
     // console.log('REQUEST BODY', req.body);
 
     const { item }  = req.body;
@@ -38,7 +39,7 @@ app.post('/task', (req, res) => {
 });
 
 //To remove a task
-app.delete('/task/:id', (req, res) => {
+router.delete('/task/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const index = tasks.findIndex(t => t.id === id);
     if (index === -1) return res.status(404).json({message: 'Task not found'});
@@ -48,6 +49,7 @@ app.delete('/task/:id', (req, res) => {
     res.json(deleted[0]);
 });
 
-app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
-});
+// app.listen(3000, () => {
+//     console.log('Server is running on http://localhost:3000');
+// });
+export default router;

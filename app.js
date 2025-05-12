@@ -3,9 +3,13 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import session from 'express-session';
 import router from './routes/index.js';
-import taskrouter from './route/task.js';
+import taskrouter from './routes/toDo.js';
 
 const app = express();
+
+// body-parser middleware setup
+//Incomming requests
+app.use(express.json());
 
 //Used for parser html forms
 app.use(bodyParser.urlencoded({
@@ -13,13 +17,12 @@ app.use(bodyParser.urlencoded({
 
 }));
 
-// body-parser middleware setup
-//Incomming requests
-app.use(express.json());
+//using toDo routes
+app.use('/task', taskrouter);
+
 
 //Public static files middleware
 app.use(express.static('public'));
-
 
 //Logging middleware using morgan for custom token creation
 
@@ -39,54 +42,8 @@ app.use(session({
 app.use("/", router);
 
 //starting the server on port 3000 
-app.listen(3000, () => console.log('Server Is Running Succesfuly '))
-
-
-
-const taskForm = document.getElementById('taskForm');
-const taskInput = document.getElementById('taskInput');
-const taskList = document.getElementById('taskList');
-
-// Redirect to login if not logged in
-if (!localStorage.getItem('todoUser')) {
-  window.location.href = 'login.html';
-}
-
-
-let tasks = [];
-
-
-function renderTasks() {
-  taskList.innerHTML = '';
-
-  tasks.forEach((task, index) => {
-    const li = document.createElement('li');
-    li.textContent = task;
-
-    const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = '❌';
-    deleteBtn.onclick = function() {
-      tasks.splice(index, 1);
-      renderTasks();
-      
-    };
-
-    li.appendChild(deleteBtn);
-    taskList.appendChild(li);
-  });
-}
-
-taskForm.addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  const task = taskInput.value.trim();
-  if (task) {
-    tasks.push(task);
-    renderTasks();
-    taskInput.value = '';
-
-  }
+app.listen(3000, () => {
+    console.log('Server is running on http://localhost:3000');
 });
-
 
   
