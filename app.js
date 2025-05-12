@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 
 });
 
-app.listen(3000, () => console.log('Server Is Running Succesfuly '))
+app.listen(3000, () => console.log('Server Is Running Succesfully '))
 
 
 
