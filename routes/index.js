@@ -1,4 +1,5 @@
-// home page routes// home page routes
+
+// home page routes
 import express from 'express';
 const router = express.Router();
 import path from "path";

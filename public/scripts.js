@@ -1,4 +1,5 @@
-// Responsible for improving the clent side interactions// Responsible for improving the clent side interactions
+
+// Responsible for improving the clent side interactions
 const taskForm = document.getElementById('taskForm');
 const taskInput = document.getElementById('taskInput');
 const taskList = document.getElementById('taskList');
