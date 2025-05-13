@@ -21,6 +21,19 @@ router.post('/', (req, res) => {
     completed: false
   };
 
+  // Delete a task
+router.delete('/:id', (req, res) => {
+  const taskId = parseInt(req.params.id);
+  const index = tasks.findIndex(task => task.id === taskId);
+
+  if (index === -1) {
+    return res.status(404).json({ error: 'Task not found' });
+  }
+
+  tasks.splice(index, 1);
+  res.status(200).json({ message: 'Task deleted successfully' });
+});
+
   tasks.push(newTask);
   res.status(201).json(newTask);
 });
