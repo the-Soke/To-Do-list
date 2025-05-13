@@ -21,6 +21,11 @@ router.post('/', (req, res) => {
     completed: false
   };
 
+  tasks.push(newTask);
+  res.status(201).json(newTask);
+});
+
+
   // Delete a task
 router.delete('/:id', (req, res) => {
   const taskId = parseInt(req.params.id);
@@ -34,9 +39,6 @@ router.delete('/:id', (req, res) => {
   res.status(200).json({ message: 'Task deleted successfully' });
 });
 
-  tasks.push(newTask);
-  res.status(201).json(newTask);
-});
 
 // Export the router using ES Modules
 export default router;
