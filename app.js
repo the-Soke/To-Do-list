@@ -1,9 +1,27 @@
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+
+dotenv.config();
+
+console.log("Mongo URI from .env:", process.env.MONGO_URI);
+
+const dbURI = process.env.MONGO_URI;
+
+// Connect to MongoDB
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((err) => console.error('Failed to connect to MongoDB', err));
+
+
 import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import session from 'express-session';
 import router from './routes/index.js';
-import taskrouter from './routes/toDo.js';
+import taskrouter from './routes/task.js';  
+
+
+
 
 const app = express();
 
@@ -18,7 +36,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 //using toDo routes
-app.use('/task', taskrouter);
+app.use('/tasks', taskrouter);
 
 
 //Public static files middleware
@@ -47,7 +65,6 @@ app.listen(3000, () => {
 });
 
 
-  
 
 app.listen(3000, () => console.log('Server Is Running Succesfully '))
 
