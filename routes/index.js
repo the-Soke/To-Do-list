@@ -2,7 +2,7 @@
 import express from 'express';
 const router = express.Router();
 
-router.get('/', (reg,res) => {
+router.get('/', (req, res) => {
     res.render('index', {title: 'To-Do App'});
 })
 
