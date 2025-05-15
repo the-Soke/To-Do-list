@@ -1,29 +1,16 @@
-import express from 'express';
-const router = express.Router();
 
-let tasks = []; // temporary in-memory storage
 
-// Get all tasks
-router.get('/', (req, res) => {
-  res.json(tasks);
-});
+import { Router } from 'express';
+import { createTask, deleteTask, getTasks } from '../controllers/taskControllers.js';
 
-// Add a new task
-router.post('/', (req, res) => {
-  const { title } = req.body;
-  if (!title) {
-    return res.status(400).json({ error: 'Title is required' });
-  }
 
-  const newTask = {
-    id: tasks.length + 1,
-    title,
-    completed: false
-  };
+const router = Router();
 
-  tasks.push(newTask);
-  res.status(201).json(newTask);
-});
+router.route('/')
+  .get(getTasks)       // GET /api/tasks
+  .post(createTask);   // POST /api/tasks
 
-// Export the router using ES Modules
+router.route('/:id')
+  .delete(deleteTask); // DELETE /api/tasks/:id
+
 export default router;
