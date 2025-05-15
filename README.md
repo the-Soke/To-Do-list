@@ -12,3 +12,8 @@ Go to your postman ensure the method is set to DELETE, type the following "http:
 
 //How to see the list of all the Tasks
 Go to your postman ensure the method is set to GET, type the following "http://localhost:3000/api/tasks" then send.
+
+### .env file
+MONGODB_URI=mongodb+srv://abubakarsaheed50:pT9gLv5IID9fBnOK@cluster0.2aifnxo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+NODE_ENV=development
+PORT=3000
