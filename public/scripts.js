@@ -3,6 +3,9 @@
 const taskForm = document.getElementById('taskForm');
 const taskInput = document.getElementById('taskInput');
 const taskList = document.getElementById('taskList');
+const API_BASE = 'http://localhost:3000/api/tasks';
+const loading = document.getElementById('loading');
+const errorDiv = document.getElementById('error');
 
 // Redirect to login if not logged in
 if (!localStorage.getItem('todoUser')) {
@@ -44,6 +47,28 @@ let tasks = [];
 //     taskList.appendChild(listItem);
 //   });
 // }
+
+// Create new task
+async function createTask(taskData) {
+    try {
+        const response = await fetch(API_BASE, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(taskData),
+        });
+
+        if (!response.ok) throw new Error('Failed to create task');
+        
+        const { data } = await response.json();
+        addTaskToDOM(data);
+        taskForm.reset();
+    } catch (err) {
+        showError(err.message);
+    }
+}
+
 function renderTasks() {
   taskList.innerHTML = '';
 
