@@ -1,6 +1,7 @@
 # 🚀 TODO LIST PROJECT
 # A Collaborative To-Do List PROJECT By TECHCRUSH SCHOLARS GROUP 4
 
+
 ![Tech Stack](https://skillicons.dev/icons?i=nodejs,express,mongodb,js,html,css)
 
 This is a collaborative to-do list Project built with Node.js, Express, and MongoDB by TechCrush Scholars Group 4. Perfect for individuals and teams to manage tasks efficiently.
@@ -65,9 +66,13 @@ PROJECT-TOGO/
 
 ### HOw To Add Tasks
 To test the POST (to add a task): Go to your postman ensure the method is set to POST, type the following "http://localhost:3000/task/post" then below the methods field, you'll see stuff like 'Params', 'authorization'... click on 'Body' and select raw. Ensure the raw is set to JSON, (the defult is usually 'Text'). Then in the 'Body' field type something like;
+//How to add Tasks
+To test the POST (to add a task): Go to your postman ensure the method is set to POST, type the following "http://localhost:3000/api/tasks" then below the methods field, you'll see stuff like 'Params', 'authorization'... click on 'Body' and select raw. Ensure the raw is set to JSON, (the defult is usually 'Text'). Then in the 'Body' field type something like;
+
 "{
     "item": "Buy milk"
 }" Then send.
+
 
 ### How to delete Tasks
 Go to your postman ensure the method is set to DELETE, type the following "http://localhost:3000/task/1", the "/1" is specifically referencing the Task with ID 1. (make more requests to add more tasks on Postman). Then send.
@@ -100,4 +105,9 @@ We welcome contributions from developers of all skill levels! Here's how you can
 
 💡 Happy Coding guys! Let's build something amazing together!
 
+ 
+### .env file
+MONGODB_URI=mongodb+srv://abubakarsaheed50:pT9gLv5IID9fBnOK@cluster0.2aifnxo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+NODE_ENV=development
+PORT=3000
 

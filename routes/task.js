@@ -1,44 +1,14 @@
-import express from 'express';
-const router = express.Router();
+import { Router } from 'express';
+import { createTask, deleteTask, getTasks } from '../controllers/taskControllers.js';
 
-let tasks = []; // temporary in-memory storage
+const router = Router();
 
-// Get all tasks
-router.get('/', (req, res) => {
-  res.json(tasks);
-});
+router.route('/')
+  .get(getTasks)       // GET /api/tasks
+  .post(createTask);   // POST /api/tasks
 
-// Add a new task
-router.post('/', (req, res) => {
-  const { title } = req.body;
-  if (!title) {
-    return res.status(400).json({ error: 'Title is required' });
-  }
+router.route('/:id')
+  .delete(deleteTask); // DELETE /api/tasks/:id
 
-  const newTask = {
-    id: tasks.length + 1,
-    title,
-    completed: false
-  };
-
-  tasks.push(newTask);
-  res.status(201).json(newTask);
-});
-
-
-  // Delete a task
-router.delete('/:id', (req, res) => {
-  const taskId = parseInt(req.params.id);
-  const index = tasks.findIndex(task => task.id === taskId);
-
-  if (index === -1) {
-    return res.status(404).json({ error: 'Task not found' });
-  }
-
-  tasks.splice(index, 1);
-  res.status(200).json({ message: 'Task deleted successfully' });
-});
-
-
-// Export the router using ES Modules
 export default router;
+

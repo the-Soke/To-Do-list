@@ -1,26 +1,26 @@
 {
   "name": "todo-app",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "const express = require('express'); const bodyParser = require('body-parser'); const db = require('./db');\r const router = express.Router(); router.use(bodyParser.json()); router.post('/tasks', async (req, res) => { const { title, description, due_date } = req.body; const newTask = await db.createTask({ title, description, due_date }); res.json(newTask); });",
+  "description": "",
   "dependencies": {
     "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "express-session": "^1.18.1",
     "mongoose": "^8.14.2",
     "morgan": "^1.10.0",
-    "path": "^0.12.7",
+    "path-to-regexp": "^0.1.12",
     "url": "^0.11.4"
   },
   "repository": {
@@ -32,3 +32,4 @@
   },
   "homepage": "https://github.com/the-Soke/To-Do-list#readme"
 }
+ 
