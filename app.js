@@ -19,9 +19,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 
-
 const app = express();
+const PORT = 3000;
 
+ 
 connectDB();
 
 // Middleware
@@ -38,15 +39,16 @@ app.use('/api/tasks', taskRoutes); // All task-related routes go through /api/ta
 // });
 
 // Static files and SPA fallback AFTER 
-app.use(express.static(path.join(__dirname, 'public')));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'login.html'));
-});
+//app.use(express.static(path.join(__dirname, 'public')));
+//app.get('*', (req, res) => {
+ // res.sendFile(path.join(__dirname, 'public', 'login.html'));
+//});
 
 // This is the part Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+
 });
 
 
